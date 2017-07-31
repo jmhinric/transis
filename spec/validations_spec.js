@@ -147,6 +147,12 @@ describe('Model validations', function() {
       expect(this.m.validateAttr('quux')).toBe(false);
       expect(this.m.ownErrors.quux).toEqual(['may not be less than 12']);
     });
+
+    it('ensures the value is not NaN', function() {
+      this.m.foo = NaN;
+      expect(this.m.validateAttr('foo')).toBe(false);
+      expect(this.m.ownErrors.foo).toEqual(['is not a number']);
+    });
   });
 
   describe('.validatesDate', function() {

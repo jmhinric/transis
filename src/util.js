@@ -122,6 +122,7 @@ export function detectRecursion(o1, o2, f) {
 export function type(o) {
   if (o === null)      { return 'null'; }
   if (o === undefined) { return 'undefined'; }
+  if (o !== o)         { return 'NaN'; }
 
   switch (toString.call(o)) {
   case '[object Array]':

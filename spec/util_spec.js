@@ -35,8 +35,11 @@ describe('type', function() {
   it("returns the string 'number' when passed a number", function() {
     expect(util.type(0)).toBe('number');
     expect(util.type(1.234)).toBe('number');
-    expect(util.type(NaN)).toBe('number');
     expect(util.type(1/0)).toBe('number');
+  });
+
+  it("returns the string 'NaN' when passed NaN", function () {
+    expect(util.type(NaN)).toBe('NaN');
   });
 
   it("returns the string 'boolean' when passed `true` or `false`", function() {
